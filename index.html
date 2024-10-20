@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .main{
+            width: 22%;
+            height: 74vh;
+            background-color: black;
+            border-radius: 30px;
+            margin-left: 40%;
+            
+        }
+
+        button{
+            border-radius: 20px;
+            border: solid gray;
+            padding: 20px;
+            font-weight: bold;
+            margin: 5px;
+            background-color: gray;
+            color: white;
+            font-size: 17px;
+            margin-left: 3%;
+            margin-top:3%;
+           
+        }
+        input{
+            width: 80%;
+            margin-top: 5%;
+            margin-left: 7%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: large;
+        }
+    .one{
+        margin-left: 6%;
+    }
+
+    .two{
+        margin-left: 6%;
+    }
+
+    .three{
+        margin-left: 6%;
+    }
+
+    .four{
+        margin-left: 5%;
+    }
+    </style>
+</head>
+<body>
+ <center>  <h1>Calculator</h1></center> 
+ <div class="main">
+
+    <input type="text" readonly>
+    <div class="row">
+        
+        <button class="one">AC</button>
+        <button class="two">DEL</button>
+        <button class="three">%</button>
+      
+    </div>
+    <div class="row">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+    </div>
+    <div class="row">
+        <button>6</button>
+        <button>5</button>
+        <button>4</button>
+        <button>-</button>
+    </div>
+    <div class="row">
+        <button>3</button>
+        <button>2</button>
+        <button>1</button>
+        <button>+</button>
+    </div>
+    <div class="row">
+        <button>0</button>
+        <button>.</button>
+        <button>=</button>
+        <button class="four">/</button>
+    </div>
+ </div>
+
+
+
+ <script>
+
+    let input = document.querySelector("input");
+    let button =document.querySelectorAll("button");
+    let result = "";
+    button.forEach((button) =>{
+        button.addEventListener ("click", function (a) {
+            if (a.target.innerHTML === "=") {
+                result = eval(result);
+                input.value = result;
+            }
+            else if(a.target.innerHTML === "AC") {
+                result="";
+                input.value = result;
+            }
+            else if (a.target.innerHTML === "DEL"){
+                result = result.substring (0,  result.length -1)
+                 input.value = result;
+            }
+         
+            else {
+                result += a.target.innerHTML;
+                input.value = result;
+            }
+
+        });
+});
+
+        
+ </script>
+
+
+</body>
+</html>
